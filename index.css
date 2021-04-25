@@ -1,0 +1,259 @@
+body {
+    margin: 0;
+    font-family: Roboto, helvetica;
+    background-color: black;
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem;
+    position: absolute;
+    z-index: 1;
+    width: 100vw;
+}
+
+.bg-color {
+    background-image: url("./src/main-bg.jpg");
+    background-color: black;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.background {
+    z-index: -1;
+    grid-column: 1 / 4;
+    grid-row: 1 / 4;
+    height: 100vh;
+}
+
+.bg-gray {
+    background-image: url("./src/main-bg.jpg");
+    background-color: black;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    filter: grayscale(100%) blur(4px);
+    opacity: 20%;
+}
+
+.background-gray {
+    z-index: -1;
+    grid-column: 1 / 4;
+    grid-row: 1 / 4;
+    height: 100vh;
+}
+
+.main {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.logo {
+    width: 50%;
+}
+
+
+.advisory {
+    width: 50%;
+}
+
+.main-tracks{
+    display: grid;
+    grid-template: repeat(4,1fr);
+    gap: 10px;
+
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.track-1,.track-2,.track-3,.track-4,.track-5{
+    background-color: coral;
+    width: 160px;
+    height: 160px;
+    mix-blend-mode: luminosity;
+    border: 4px solid white;
+    color: white;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.track-1{
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+.track-2{
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+.track-3{
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+.track-4{
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+.track-5{
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+}
+
+.number-producer {
+    display: flex;
+    justify-content: space-between;
+   
+}
+.nickname {
+    display: flex;
+    justify-content: center;
+    font-size: 6rem;
+    margin: 0;
+}
+
+.nickname, p {
+    margin: 0;
+    font-weight: 500;
+}
+.track-name{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+
+
+
+.featuring {
+    
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+
+}
+
+.main-featuring {
+    border: 10px solid white;
+
+    display: grid;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    grid-template-columns: repeat(3,1fr);
+    color: white;
+}
+
+.featuring-title{
+    display: flex;
+    justify-content: space-between;
+    margin:0rem 1rem 1rem 1rem;
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+}
+
+.producers {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+
+.producers,h3 {
+    margin: 1rem;
+}
+
+.artists {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(3,1fr);
+    margin: 0 2.5rem 0 2.5rem ;
+}
+
+.artist-1 {
+    width: 90px;
+    height: 90px;
+    border: 2px solid white;
+}
+
+@media (max-width: 820px) {
+   
+    .main-tracks{
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(3,1fr);
+        gap: 10px;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+    .track-1{
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+    .track-2{
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+    .track-3{
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+    .track-4{
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+    .track-5{
+        grid-column: 2 / 2;
+        grid-row: 3 / 4;
+    }
+}
+
+
+@media (max-width: 652px){
+    .main {
+        width: 100vw;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+    .main-tracks{
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(3,1fr);
+        gap: 10px;
+        margin-top: 7rem;
+        margin-bottom: 3rem;
+    }
+
+}
+
+@media (max-width: 690px){
+    .main-featuring {
+        width: 100vw;
+        display: grid;
+        grid-column: 1 / 4;
+        grid-row: 1 / 4;
+    }
+    .artists {
+        grid-column: 1 / 4;
+        grid-row: 2 / 3;
+        display: grid;
+        gap: 5px;
+        grid-template-columns: repeat(6,1fr);
+        grid-template-rows: repeat(3,1fr);
+        margin: 0 2.5rem 0 2.5rem ;
+    }
+}
+
+@media (min-width: 1440px) {
+    
+}
