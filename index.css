@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: Roboto, helvetica;
+    font-family: 'Roboto', sans-serif;
     background-color: black;
 }
 
@@ -8,10 +8,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 1rem;
+    width: 100vw;
+    margin: 0rem 1rem 1rem 0rem;
     position: absolute;
     z-index: 1;
-    width: 100vw;
 }
 
 .bg-color {
@@ -57,19 +57,19 @@ body {
 }
 
 .logo {
-    width: 50%;
+    width: 4rem;
+    margin: 1rem 1rem 1rem 2rem;
 }
 
-
 .advisory {
-    width: 50%;
+    width: 5rem;
+    margin: 1rem 3rem 1rem 1rem;
 }
 
 .main-tracks{
     display: grid;
     grid-template: repeat(4,1fr);
     gap: 10px;
-
     grid-column: 2 / 3;
     grid-row: 2 / 3;
 }
@@ -82,7 +82,6 @@ body {
     border: 4px solid white;
     color: white;
     padding: 10px;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -112,39 +111,37 @@ body {
 .number-producer {
     display: flex;
     justify-content: space-between;
-   
+    font-weight: 400;
 }
 .nickname {
     display: flex;
     justify-content: center;
     font-size: 6rem;
     margin: 0;
+    font-weight: 500;
 }
 
 .nickname, p {
     margin: 0;
-    font-weight: 500;
 }
+
 .track-name{
     display: flex;
     justify-content: center;
     margin: 0;
+    font-weight: 300;
+    font-size: 1.2rem;
+    font-variant: normal;
 }
 
-
-
-
 .featuring {
-    
     width: 100vw;
     display: grid;
     grid-template-columns: repeat(3,1fr);
-
 }
 
 .main-featuring {
     border: 10px solid white;
-
     display: grid;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
@@ -158,6 +155,7 @@ body {
     margin:0rem 1rem 1rem 1rem;
     grid-column: 1 / 4;
     grid-row: 1 / 2;
+    font-weight: 400!important;
 }
 
 .producers {
@@ -170,6 +168,7 @@ body {
 
 .producers,h3 {
     margin: 1rem;
+    font-weight: 300;
 }
 
 .artists {
@@ -182,10 +181,167 @@ body {
     margin: 0 2.5rem 0 2.5rem ;
 }
 
-.artist-1 {
+.artist-1,.artist-2,.artist-3,.artist-4,.artist-5,.artist-6,.artist-7,.artist-8,.artist-9,.artist-10,.artist-11,.artist-12,.artist-13,.artist-14,.artist-15,.artist-16,.artist-17,.artist-18 {
     width: 90px;
     height: 90px;
     border: 2px solid white;
+    cursor: pointer;
+    background-image: none;
+}
+
+.artist-1:hover{
+    background-image: url("./src/artistas/myke.jpg");
+    background-size: 100%;
+}
+.artist-2:hover{
+    background-image: url("./src/artistas/balvin.jpg");
+    background-size: 100%;
+}
+.artist-3:hover{
+    background-image: url("./src/artistas/wisin.jpg");
+    background-size: 100%;
+}
+.artist-4:hover{
+    background-image: url("./src/artistas/yandel.jpg");
+    background-size: 100%;
+}
+.artist-5:hover{
+    background-image: url("./src/artistas/daddy.jpg");
+    background-size: 100%;
+}
+.artist-6:hover{
+    background-image: url("./src/artistas/lunay.jpg");
+    background-size: 100%;
+}
+.artist-7:hover{
+    background-image: url("./src/artistas/mariah.jpg");
+    background-size: 100%;
+}
+.artist-8:hover{
+    background-image: url("./src/artistas/farina.jpg");
+    background-size: 100%;
+}
+.artist-9:hover{
+    background-image: url("./src/artistas/mikywoodz.jpg");
+    background-size: 100%;
+}
+.artist-10:hover{
+    background-image: url("./src/artistas/jhay.jpg");
+    background-size: 100%;
+}
+.artist-11:hover{
+    background-image: url("./src/artistas/becerra.jpg");
+    background-size: 100%;
+}
+.artist-12:hover{
+    background-image: url("./src/artistas/cazzu.jpg");
+    background-size: 100%;
+}
+.artist-13:hover{
+    background-image: url("./src/artistas/randy.jpg");
+    background-size: 100%;
+}
+.artist-14:hover{
+    background-image: url("./src/artistas/jowell.jpg");
+    background-size: 100%;
+}
+.artist-15:hover{
+    background-image: url("./src/artistas/arca.jpg");
+    background-size: 100%;
+}
+.artist-16:hover{
+    background-image: url("./src/artistas/rauw.jpg");
+    background-size: 100%;
+}
+.artist-17:hover{
+    background-image: url("./src/artistas/toki.jpg");
+    background-size: 100%;
+}
+.artist-18:hover{
+    background-image: url("./src/artistas/eladio.jpg");
+    background-size: 100%;
+}
+
+
+.number-tracks{
+    font-size: .7rem;
+    display: flex;
+    justify-content: space-between;
+    margin: .3rem .3rem 0rem .3rem;
+    font-weight: 300;
+}
+
+.artists-nickname {
+    font-size: 2.8rem;
+    display: flex;
+    justify-content: center;
+}
+
+.artist-name{
+    font-size: .7rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: .3rem;
+    font-weight: 300;
+}
+
+@media (max-width: 472px) {
+
+    .main-featuring {
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: repeat(3,1fr);
+    }
+
+    .artist-1 {
+        width: 80px!important;
+        height: 80px!important;
+    }
+
+    .featuring-title{
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+    }
+
+}
+
+@media (max-width: 615px) {
+
+    .main-featuring {
+        grid-column: 1 / 4;
+        grid-row: 1 / 4;
+    }
+   
+    .artists {
+        grid-template-columns: repeat(3,1fr)!important;
+        grid-template-rows: repeat(6,1fr)!important;
+        align-content: center;
+        align-items: center;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .main-featuring {
+        grid-column: 1 / 4;
+        grid-row: 1 / 4;
+    }
+   
+    .artists {
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: repeat(5,1fr);
+        gap: 0.7rem;
+        align-content: center;
+        align-items: center;
+    }
+    .artist-1.artist-1,.artist-2,.artist-3,.artist-4,.artist-5,.artist-6,.artist-7,.artist-8,.artist-9,.artist-10,.artist-11,.artist-12,.artist-13,.artist-14,.artist-15,.artist-16,.artist-17,.artist-18{
+        width: 115px;
+        height: 115px;
+        display: grid;
+    }
+
+
 }
 
 @media (max-width: 820px) {
@@ -217,43 +373,4 @@ body {
         grid-column: 2 / 2;
         grid-row: 3 / 4;
     }
-}
-
-
-@media (max-width: 652px){
-    .main {
-        width: 100vw;
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-    }
-    .main-tracks{
-        grid-template-columns: repeat(2,1fr);
-        grid-template-rows: repeat(3,1fr);
-        gap: 10px;
-        margin-top: 7rem;
-        margin-bottom: 3rem;
-    }
-
-}
-
-@media (max-width: 690px){
-    .main-featuring {
-        width: 100vw;
-        display: grid;
-        grid-column: 1 / 4;
-        grid-row: 1 / 4;
-    }
-    .artists {
-        grid-column: 1 / 4;
-        grid-row: 2 / 3;
-        display: grid;
-        gap: 5px;
-        grid-template-columns: repeat(6,1fr);
-        grid-template-rows: repeat(3,1fr);
-        margin: 0 2.5rem 0 2.5rem ;
-    }
-}
-
-@media (min-width: 1440px) {
-    
 }
