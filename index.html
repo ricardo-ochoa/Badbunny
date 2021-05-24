@@ -22,7 +22,14 @@
 
             <div class="general" id="fullpage">
                 <div class="head">
-                    <img class="logo" src="./src/logobb.png" alt="logo bad bunny">
+
+                    <div class="logo">
+                        <img class="logo-normal" src="/src/logobb.svg" alt="">
+                        <!-- <img  class="logo-hover" src="/src/logobb_hover.svg" alt=""> -->
+                    </div>
+               
+                    
+                    <!-- <img class="logo" src="./src/logobb.png" alt="logo bad bunny"> -->
                     <img class="advisory" src="./src/ParentalAdvisory.png" alt="parental advisory explicit content">
                 </div>
                 <section class="main section s1">
@@ -30,7 +37,7 @@
                     <div class="background">
                         <div class="bg-color">
                             <div class="main-tracks">
-                                <div class="track-1">
+                                <div class="track-1" onclick="openDialog('track-barrio.html',800)">
                                     <div class="number-producer">
                                         <p>01</p> <p>Tainy</p>
                                     </div>
@@ -876,5 +883,6 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.0/fullpage.min.js"></script>
     <script type="text/javascript" src="fullpage.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 </body>
 </html>
