@@ -27,7 +27,7 @@ body {
     justify-content: space-between;
     width: 100vw;
     margin: 0rem 1rem 1rem 0rem;
-    position: absolute;
+    position: fixed;
     z-index: 1;
 }
 
@@ -175,13 +175,12 @@ body {
 .DivBackground {
     width: 100%;
     height: 100%;
-    background: #000;
-    opacity: .9;
-    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed;
     top: 0px;
     left: 0px;
     z-index: 3;
-    position: fixed;
+    
 } 
 
 .DivTrack {
@@ -189,15 +188,22 @@ body {
     margin: 20vh auto 0 auto;
     padding: 10px;
     box-sizing: border-box;
-    background: #000;
+    
 }
 
 .main-track {
     display: grid;
     grid-template-columns: repeat(1,1fr);
-    border: 10px solid white;
-    background: #000;
+    border: 9px solid white;
+    background: rgba(0, 0, 0, 0.8);
+    
 }
+
+/* .show {
+    pointer-events: auto;
+    opacity: 1;
+    z-index: 5;
+} */
 
 .icon-close{
     justify-self: end;
@@ -205,10 +211,11 @@ body {
     fill: #fff;
     height: 25px;
     width: 25px;
+    cursor: pointer;
 }
 
 .icon-close:hover{
-    fill: orange;
+    fill: coral;
 }
 
 .artists-track {
@@ -223,6 +230,22 @@ body {
     color: #fff;
 }
 
+.artistselected{
+    background: rgba(0, 0, 0, 0.8);
+    background-image: url("./src/artistas/myke.jpg")!important;
+    background-size: 100%;
+    color: coral;
+    background-blend-mode:overlay;
+}
+
+.artists-nickname-check, .check-icon {
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: .75rem;
+}
+
+
 .indication {
     color: white;
     grid-column: 1 / 3;
@@ -232,7 +255,7 @@ body {
     width: 60%;
     text-align: center;
     font-weight: 500;
-    
+    margin-top: 2rem;
 }
 
 .play-zone {
@@ -253,7 +276,7 @@ body {
     font-weight: 300;
 }
 
-.btn-play{
+.btn-play {
     border: 2px solid white ;
     width: 150px;
     height: 50px;
@@ -265,23 +288,29 @@ body {
     margin-top: 2rem;
     fill: #fff;
     color: #fff;
+    cursor: pointer;
 }
 
 .btn-play:hover{
-    border: 2px solid  rgb(231, 151, 1) ;
-    background-color: orange;
-    color: #000;
-    fill: #000;
+    border: 2px solid  rgb(204, 99, 60) ;
+    background-color: coral;
+    fill: #000!important;
 }
 
 .icon-play{
     width: 30px;
-    margin: 0 .8rem 0 0;
+    margin: 0 .5rem 0 0;
 }
 
 .escuchar {
     align-self: center;
-    font-weight: 500;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.escuchar:hover{
+    color: #000;
 }
 
 .main-merch {
@@ -323,8 +352,12 @@ body {
 }
 
 .merch-img {
-    width: 230px;
-    
+    height: 300px;
+}
+
+.merch-name{
+    font-size: .9rem;
+    text-align: center;
 }
 
 .main-featuring {
@@ -374,6 +407,8 @@ body {
     border: 2px solid white;
     cursor: pointer;
     background-image: none;
+    
+
 }
 
 .artist-1:hover{
@@ -697,8 +732,7 @@ background: linear-gradient(0deg, rgba(250,36,61,1) 0%, rgba(251,91,115,1) 100%)
         grid-template-rows: repeat(4,1fr);
         width: 100%;
         height: 100%;
-        background: #000;
-        opacity: .9;
+        background: rgba(0, 0, 0, 0.9);
         position: absolute;
         top: 0px;
         left: 0px;
@@ -717,7 +751,7 @@ background: linear-gradient(0deg, rgba(250,36,61,1) 0%, rgba(251,91,115,1) 100%)
         grid-column: 1 / 4;
         grid-row: 1 / 4;
         border: 10px solid white;
-        background: #000;
+        background: rgba(0, 0, 0, 0.9);
 
     }
 
