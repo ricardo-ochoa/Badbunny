@@ -6,11 +6,11 @@ class componentTrack extends HTMLElement {
       this.attachShadow({ mode: "open" });
     }
     static get observedAttributes() {
-      return ["id", "producer", "nickname", "artistname", "img"];
+      return ["number", "producer", "nickname", "artistname", "img"];
     }
     attributeChangedCallback(attr, oldVal, newVal) {
-      if (attr === "id") {
-        this.id = newVal;
+      if (attr === "number") {
+        this.number= newVal;
       }
       if (attr === "producer") {
         this.producer = newVal;
@@ -24,18 +24,14 @@ class componentTrack extends HTMLElement {
       if (attr === "img") {
         this.img = newVal;
       }
-      // if (attr === "selected") {
-      //   this.selected = newVal;
-      // }
-
       
     }
     getTemplate() {
       const template = document.createElement("template");
       template.innerHTML = `
-      <div class="${this.img}" id="track1">
+      <div class="${this.img} ${this.nickname}">
         <div class="number-producer">
-            <p>${this.id}</p> <p>${this.producer}</p>
+            <p>${this.number}</p> <p>${this.producer}</p>
         </div>
         <div class="nickname">
             <p>${this.nickname}</p>
@@ -52,28 +48,11 @@ class componentTrack extends HTMLElement {
       return `
         <style>
 
-        .01 {
-          grid-column: 1 / 2;
-          grid-row: 1 / 2;
-        }
-        .02 {
-          grid-column: 2 / 3;
-          grid-row: 1 / 2;
-        }
-        .03 {
-          grid-column: 2 / 3;
-          grid-row: 2 / 3;
-        }
-        .04 {
-          grid-column: 3 / 4;
-          grid-row: 2 / 3;
-        }
-        .05 {
-          grid-column: 4 / 5;
-          grid-row: 2 / 3;
+        p{
+          margin: 0;
         }
        
-        .01,.02,.03,.04,.05 {
+        .Ba,.D,.Bu,.N,.Ny {
           background-color: coral;
           width: 160px;
           height: 160px;
@@ -107,13 +86,43 @@ class componentTrack extends HTMLElement {
           font-size: 1.2rem;
           font-variant: normal;
         }
+
+        .Ba:hover{
+          background-image: url("https://firebasestorage.googleapis.com/v0/b/badbunny-ep.appspot.com/o/tracks%2Fbarrio.gif?alt=media&token=2b531c1c-a0c7-40da-8b7e-61834747e820");
+          background-size: 100%;
+          mix-blend-mode: normal;
+        }
+        .D:hover{
+          background-image: url("https://firebasestorage.googleapis.com/v0/b/badbunny-ep.appspot.com/o/tracks%2Fdimelo.gif?alt=media&token=1aecff4c-d066-4758-b4c3-65ece24f9a5e");
+          background-size: 100%;
+          mix-blend-mode: normal;
+        }
+        .Bu:hover{
+          background-image: url("https://firebasestorage.googleapis.com/v0/b/badbunny-ep.appspot.com/o/tracks%2Fbuenostiempos.gif?alt=media&token=4419bf29-5fc7-46e6-bd3b-368ea924fad5");
+          background-size: 100%;
+          mix-blend-mode: normal;
+        }
+        .N:hover{
+          background-image: url("https://firebasestorage.googleapis.com/v0/b/badbunny-ep.appspot.com/o/tracks%2Fnotaloka.gif?alt=media&token=5ff17bb2-b8e8-46d2-85df-d2b41692788b");
+          background-size: 100%;
+          mix-blend-mode: normal;
+        }
+        .Ny:hover{
+          background-image: url("https://firebasestorage.googleapis.com/v0/b/badbunny-ep.appspot.com/o/tracks%2Fny.gif?alt=media&token=ec50066d-1af5-498b-bade-346b0af9bba1");
+          background-size: 100%;
+          mix-blend-mode: normal;
+        }
+
+        @media (max-width: 860px) {
+
+    
+      }
         </style>
       `;
     }
     render() {
       this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true));
     }
-
 
     connectedCallback() {
       this.render();

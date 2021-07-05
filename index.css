@@ -35,6 +35,7 @@ body {
     background-image: url("./src/main-bg.jpg");
     background-color: black;
     height: 100vh;
+    width: 100vw;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -79,13 +80,13 @@ body {
 
 .main-tracks{
     display: grid;
-    grid-template: repeat(4,1fr);
+    grid-template-columns: repeat(4,1fr);
     gap: 10px;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
 }
 
-.track-1,.track-2,.track-3,.track-4,.track-5{
+/* .track{
     background-color: coral;
     width: 160px;
     height: 160px;
@@ -97,18 +98,35 @@ body {
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
-}
+} */
 
-.track-1{
+.Ba {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-}
-.track-1:hover{
+  }
+  .D {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+  .Bu {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+  .N {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+  }
+  .Ny {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+  }
+
+/* .Ba:hover{
     background-image: url("./src/barrio.gif");
     background-size: 100%;
     mix-blend-mode: normal;
-}
-.track-2{
+} */
+/* .track-2{
     grid-column: 2 / 3;
     grid-row: 1 / 2;
 }
@@ -143,9 +161,9 @@ body {
     background-image: url("./src/newyork.gif");
     background-size: 100%;
     mix-blend-mode: normal;
-}
+} */
 
-.number-producer {
+/* .number-producer {
     display: flex;
     justify-content: space-between;
     font-weight: 400;
@@ -170,7 +188,7 @@ body {
     font-weight: 300;
     font-size: 1.2rem;
     font-variant: normal;
-}
+} */
 
 /* .DivBackground {
     width: 100%;
@@ -778,33 +796,34 @@ background: linear-gradient(0deg, rgba(250,36,61,1) 0%, rgba(251,91,115,1) 100%)
     
 }
 
-@media (max-width: 820px) {
+@media (max-width: 860px) {
    
     .main-tracks{
         grid-template-columns: repeat(2,1fr);
         grid-template-rows: repeat(3,1fr);
         gap: 10px;
-        margin-top: 3rem;
+        margin-top: 7rem;
         margin-bottom: 3rem;
     }
-    .track-1{
-        grid-column: 1 / 2;
-        grid-row: 1 / 2;
-    }
-    .track-2{
+
+    .Ba{
         grid-column: 2 / 3;
         grid-row: 1 / 2;
     }
-    .track-3{
-        grid-column: 1 / 2;
-        grid-row: 2 / 3;
+    .D{
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
     }
-    .track-4{
+    .Bu{
         grid-column: 2 / 3;
         grid-row: 2 / 3;
     }
-    .track-5{
-        grid-column: 2 / 2;
+    .N{
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
+    }
+    .Ny{
+        grid-column: 2 / 3;
         grid-row: 3 / 4;
     }
 

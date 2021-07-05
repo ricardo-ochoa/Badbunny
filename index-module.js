@@ -2,8 +2,6 @@ import "./components/modal-tracks.js";
 import "./components/component-track.js";
 
 
-
-
 const url = "https://badbunny-ep-default-rtdb.firebaseio.com/.json?callback=gotData";
 
 
@@ -21,7 +19,7 @@ function SelectAllTracks(){
     firebase.database().ref('tracks').once('value',
     function(AllTracks){
         AllTracks.forEach(
-            function(Tracks){
+            function(Tracks){ 
                 var trackname = Tracks.val().trackname;
                 var number = Tracks.val().number;
                 var producer = Tracks.val().producer;
@@ -30,15 +28,44 @@ function SelectAllTracks(){
                 addItems(trackname,number,producer,nickname);
             }
         )
+        allItems.push(addItems);
     });
 }
 
 window.onload = SelectAllTracks;
 
 function addItems(trackname,number,producer,nickname){
-console.log(trackname,number,producer,nickname);
+    let tracksContainer = document.querySelector(".main-tracks");
+    const componentTrack = document.createElement("component-track");
 
+    componentTrack.trackname = trackname;
+    componentTrack.number = number;
+    componentTrack.producer = producer;
+    componentTrack.nickname = nickname;
+    componentTrack.className = nickname;
+
+    tracksContainer.appendChild(componentTrack);
 }
+
+const allItems = [];
+
+
+
+
+
+{/* <div class="${this.img}" id="track1">
+<div class="number-producer">
+    <p>${this.number}</p> <p>${this.producer}</p>
+</div>
+<div class="nickname">
+    <p>${this.nickname}</p>
+</div>
+<div class="track-name">
+    <p>${this.trackname}</p>
+</div>
+</div>
+${this.getStyles()}
+`; */}
 
 
 
