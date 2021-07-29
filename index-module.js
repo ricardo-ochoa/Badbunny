@@ -1,6 +1,8 @@
 import "./components/modal-tracks.js";
 import "./components/component-track.js";
-
+import "./components/component-artist.js";
+import "./components/component-media.js";
+import "./components/component-merch.js";
 
 const url = "https://badbunny-ep-default-rtdb.firebaseio.com/.json?callback=gotData";
 
@@ -14,6 +16,7 @@ var firebaseConfig = {
 
   firebase.initializeApp(firebaseConfig);
 
+// ---Tracks--- //
 
 function SelectAllTracks(){
     firebase.database().ref('tracks').once('value',
@@ -26,13 +29,13 @@ function SelectAllTracks(){
                 var nickname = Tracks.val().nickname;
 
                 addItems(trackname,number,producer,nickname);
+                
             }
         )
         allItems.push(addItems);
+        
     });
 }
-
-window.onload = SelectAllTracks;
 
 function addItems(trackname,number,producer,nickname){
     let tracksContainer = document.querySelector(".main-tracks");
@@ -50,72 +53,152 @@ function addItems(trackname,number,producer,nickname){
 const allItems = [];
 
 
+// ---Artistas--- //
+
+function selectArtists(){
+    firebase.database().ref('artists').once('value',
+    function(AllArtists){
+        AllArtists.forEach(
+            function(Artists){ 
+                var name = Artists.val().name;
+                var instagram = Artists.val().instagram;
+                var tracks = Artists.val().tracks;
+                var nickname = Artists.val().nickname;
+                var ide = Artists.val().id;
+                
+                addArtists(name,instagram,nickname,tracks,ide);
+
+            }
+        )
+        allArtists.push(addArtists);
+        
+    });
+    
+}
+
+function addArtists(name,instagram,nickname,tracks,ide){
+    let artistContainer = document.querySelector(".artists");
+    const componentArtist = document.createElement("component-artist");
+
+    componentArtist.artistname = name;
+    componentArtist.nickname = nickname;
+    componentArtist.tracksfeaturings = tracks;
+    componentArtist.ide = ide;
+
+
+    artistContainer.appendChild(componentArtist);
+
+}
+
+const allArtists = [];
+
+
+// ---Tours--- //
+
+function selectTours(){
+    firebase.database().ref('tour').once('value',
+    function(AllTours){
+        AllTours.forEach(
+            function(Tours){ 
+                var name = Tours.val().name;
+                var date = Tours.val().date;
+                var year = Tours.val().year;
+                var nickname = Tours.val().nickname;
+                
+                addTours(name,date,year,nickname);
+                
+            }
+        )
+        allTours.push(addTours);
+        
+    });
+    
+}
+
+function addTours(name,date,year,nickname){
+    let tourContainer = document.querySelector(".tours");
+    const componentArtist = document.createElement("component-artist");
+
+    componentArtist.artistname = name;
+    componentArtist.nickname = nickname;
+    componentArtist.tracksfeaturings = year;
+    componentArtist.ide = date;
+
+
+    tourContainer.appendChild(componentArtist);
+
+}
+
+const allTours = [];
 
 
 
-{/* <div class="${this.img}" id="track1">
-<div class="number-producer">
-    <p>${this.number}</p> <p>${this.producer}</p>
-</div>
-<div class="nickname">
-    <p>${this.nickname}</p>
-</div>
-<div class="track-name">
-    <p>${this.trackname}</p>
-</div>
-</div>
-${this.getStyles()}
-`; */}
+// ---Social media--- //
+
+function selectMedia(){
+    firebase.database().ref('media').once('value',
+    function(AllMedia){
+        AllMedia.forEach(
+            function(Media){ 
+                var name = Media.val().name;
+                var nickname = Media.val().nickname;
+                addMedia(name,nickname);
+                
+            }
+        )
+        allMedia.push(addMedia);
+        
+    });
+    
+}
+
+function addMedia(name,nickname){
+    let mediaContainer = document.querySelector(".main-soicalmedia");
+    const componentMedia = document.createElement("component-media");
+
+    componentMedia.name = name;
+    componentMedia.nickname = nickname;
+
+    mediaContainer.appendChild(componentMedia);
+}
+
+const allMedia = [];
+
+// ---Merch--- //
+
+function selectMerch(){
+    firebase.database().ref('merch').once('value',
+    function(AllMerch){
+        AllMerch.forEach(
+            function(Media){ 
+                var name = Media.val().name;
+                var price = Media.val().price;
+                addMerch(name,price);
+                console.log(name);
+            }
+        )
+        allMerch.push(addMerch);
+        
+    });
+    
+}
+
+function addMerch(name,price){
+    let merchContainer = document.querySelector(".mercha");
+    // const componentMerch = document.createElement("component-merch");
+    
 
 
+    merchContainer.name = name;
+    merchContainer.price = price;
 
-// // conect to server
-// window
-//   .fetch(url)
-//     // procesar la respuesta y convertirla a json
-//   .then((respuesta) => respuesta.json())
-//     //JSON-> DATA-> Renderizar la info al browser
-//   .then((tracks) => {
-//     tracks.forEach(item => {
-//     console.log(item.id);
-//    });
-//   });
+    // merchContainer.appendChild(componentMerch);
+
+}
+
+const allMerch = [];
 
 
+// ---Load--- //
 
-
-
-// let modalTracks = document.createElement("modal-tracks");
-
-// let track1 = document.getElementById("track1");
-// let track2 = document.getElementById("track2");
-// let track3 = document.getElementById("track3");
-// let track4 = document.getElementById("track4");
-// let track5 = document.getElementById("track5");
-
-// const modalTrack1 = document.querySelector("modal-tracks");
-// const modalTrack2 = document.querySelector(".track2");
-// const modalTrack3 = document.querySelector("modal-tracks");
-// const modalTrack4 = document.querySelector("modal-tracks");
-// const modalTrack5 = document.querySelector("modal-tracks");
-
-// track1.addEventListener('click', () => {
-//     modalTrack1.open()
-// })
-
-// track2.addEventListener('click', () => {
-//     modalTrack2.open()
-// })
-
-
-
-
-{/* <component-artist
-img = "${"nickname"}";
-artistnumber = "01"
-tracksfeaturings = "1·3·5"
-nickname = "Mt"
-artistname = "Myke Towers"
-></component-artist> */}
-
-{/* <btn-play></btn-play> */}
+window.onload = SelectAllTracks(); selectArtists(); selectTours(); selectMedia(); selectMerch();

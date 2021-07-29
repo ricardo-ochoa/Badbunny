@@ -68,7 +68,7 @@ class componentTrack extends HTMLElement {
         .number-producer {
           display: flex;
           justify-content: space-between;
-          font-weight: 400;
+          font-weight: 300;
           mix-blend-mode: normal;
         }
         .nickname {
@@ -115,6 +115,17 @@ class componentTrack extends HTMLElement {
 
         @media (max-width: 860px) {
 
+          .Ba,.D,.Bu,.N,.Ny {
+            width: 130px;
+            height: 130px;
+          }
+
+          .nickname {
+            font-size: 5rem;
+          }
+          .track-name {
+            font-size: 1rem;
+          }
     
       }
         </style>
