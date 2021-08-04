@@ -33,6 +33,9 @@ class componentMerch extends HTMLElement {
             <div class="merch-name">
                 <p>${this.name}</p>
             </div>
+            <div class="btn-availability">
+                <p>Coming soon</p>
+            </div>
           </div>
 
         </div>
@@ -65,6 +68,22 @@ class componentMerch extends HTMLElement {
         .merch-name{
           text-align: center;
           margin: 1 rem;
+          
+        }
+
+        .btn-availability{
+          width: 10rem;
+          margin: 0 auto;
+          border: 2px solid white;
+          text-align: center;
+          margin-bottom: 1rem; 
+          background-color: salmon;
+        }
+
+        .btn-availability p{
+          margin: .5rem;
+          font-weight: 400;
+          font-size: 1rem;
         }
 
         .frame {
@@ -93,7 +112,13 @@ class componentMerch extends HTMLElement {
 
         @media (max-width: 768px) {
 
+          .frame {
+            width: 280px;
+          }
 
+          .merch-img{
+            width: 200px;
+          }
         }
 
         </style>

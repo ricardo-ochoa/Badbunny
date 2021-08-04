@@ -336,12 +336,12 @@ body {
 }
 
 .fp-controlArrow.fp-next {
-    right: 150px!important;
+    right: 250px!important;
     
 }
 
 .fp-controlArrow.fp-prev {
-    left: 150px!important;
+    left: 250px!important;
     
 }
 
@@ -739,6 +739,16 @@ background: linear-gradient(0deg, rgba(250,36,61,1) 0%, rgba(251,91,115,1) 100%)
 
 @media (max-width: 768px) {
 
+    .fp-controlArrow.fp-next {
+        right: 100px!important;
+        
+    }
+    
+    .fp-controlArrow.fp-prev {
+        left: 100px!important;
+        
+    }
+
 
     .main-featuring-tour {
         grid-column: 1 / 4;
@@ -831,6 +841,16 @@ background: linear-gradient(0deg, rgba(250,36,61,1) 0%, rgba(251,91,115,1) 100%)
 }
 
 @media (max-width: 860px) {
+
+    .fp-controlArrow.fp-next {
+        right: 65px!important;
+        
+    }
+    
+    .fp-controlArrow.fp-prev {
+        left: 65px!important;
+        
+    }
    
     .main-tracks{
         grid-template-columns: repeat(2,1fr);
