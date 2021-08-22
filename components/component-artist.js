@@ -283,8 +283,14 @@ class componentArtist extends HTMLElement {
 
         @media (max-width: 375px) {
           .artist {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
+          }
+
+          .featuring-title {
+            display: flex;
+            justify-content: space-between;
+            margin: 0rem 1rem 0rem 1rem;
           }
 
           .number-tracks{
@@ -293,12 +299,12 @@ class componentArtist extends HTMLElement {
             margin: .2rem .2rem 0rem .2rem;
           }
           .artists-nickname {
-            font-size: 1.8rem;
+            font-size: 2rem;
             display: flex;
             justify-content: center;
           }
           .artist-name{
-            font-size: .5rem;
+            font-size: .6rem;
             display: flex;
             justify-content: center;
             margin-bottom: .3rem;
