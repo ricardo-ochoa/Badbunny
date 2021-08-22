@@ -128,6 +128,24 @@ class componentTrack extends HTMLElement {
           }
     
       }
+
+      @media (max-width: 400px) {
+        .Ba,.D,.Bu,.N,.Ny {
+          width: 100px;
+          height: 100px;
+        }
+        .nickname {
+          font-size: 4rem;
+          margin-bottom: -.15rem;
+        }
+        .track-name {
+          font-size: .8rem;
+          font-weight: 400;
+        }
+        .number-producer {
+          font-size: .9rem;
+      }
+      }  
         </style>
       `;
     }
