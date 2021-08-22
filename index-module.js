@@ -6,6 +6,7 @@ import "./components/component-modal.js";
 import "./components/component-info-artist.js";
 import "./components/component-merch.js";
 import "./components/component-info-tour.js";
+import "./components/component-info-track.js";
 
 
 
@@ -53,6 +54,16 @@ function addItems(trackname,number,producer,nickname){
     componentTrack.className = nickname;
 
     tracksContainer.appendChild(componentTrack);
+
+    // ---> Modal Tour info <--- //
+    componentTrack.addEventListener('click', (e) => {
+
+        const modalTrack = document.createElement("component-infotrack");
+        modalTrack .nickname = nickname;
+
+        document.body.appendChild(modalTrack );
+    });
+
 }
 
 const allItems = [];

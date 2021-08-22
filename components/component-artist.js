@@ -244,6 +244,7 @@ class componentArtist extends HTMLElement {
           justify-content: center;
           margin-bottom: .3rem;
           font-weight: 300;
+          text-align: center;
         }
 
         .artists-track {
@@ -266,8 +267,6 @@ class componentArtist extends HTMLElement {
               align-content: center;
               align-items: center;
           }
-
-      
           .artists-track {
               grid-column: 1 / 2;
               grid-row: 3 / 3;
@@ -278,6 +277,33 @@ class componentArtist extends HTMLElement {
               margin: 2rem;
               justify-self: center;
               color: #fff;
+          }
+
+        }
+
+        @media (max-width: 375px) {
+          .artist {
+            width: 60px;
+            height: 60px;
+          }
+
+          .number-tracks{
+            font-size: .5rem;
+            justify-content: space-between;
+            margin: .2rem .2rem 0rem .2rem;
+          }
+          .artists-nickname {
+            font-size: 1.8rem;
+            display: flex;
+            justify-content: center;
+          }
+          .artist-name{
+            font-size: .5rem;
+            display: flex;
+            justify-content: center;
+            margin-bottom: .3rem;
+            font-weight: 300;
+            text-align: center;
           }
 
         }

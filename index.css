@@ -430,11 +430,13 @@ component-merch{
     justify-content: center; 
     grid-column: 2 / 3;
     grid-row: 3 / 4;
+    text-align: center;
 }
 
 .producers,h3 {
     margin: 1rem;
     font-weight: 300;
+    text-align: center;
 }
 
  .artists, .tours {
@@ -666,6 +668,7 @@ background: linear-gradient(0deg, rgba(250,36,61,1) 0%, rgba(251,91,115,1) 100%)
     align-self: flex-end;
     justify-content: center;
     font-size: .8rem;
+    text-align: center;
 }
 
 @media (max-width: 472px) {
@@ -684,7 +687,7 @@ background: linear-gradient(0deg, rgba(250,36,61,1) 0%, rgba(251,91,115,1) 100%)
 
 }
 
-@media (max-width: 615px) {
+@media (max-width: 600px) {
 
     .main-soicalmedia{
 
@@ -721,20 +724,11 @@ background: linear-gradient(0deg, rgba(250,36,61,1) 0%, rgba(251,91,115,1) 100%)
         overflow-y: scroll;
     }
 
-    .main-track {
-
-    }
-
-    .artists-track {
-
-    }
-
-    .play-zone {
-
-    }
-
-    .indication {
-
+    .producers,h3 {
+        margin: 1rem;
+        font-weight: 300;
+        text-align: center;
+        font-size: 1rem;
     }
 }
 
