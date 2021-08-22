@@ -8,6 +8,7 @@ body {
     z-index: 2!important;
 }
 
+
 .bg-gray {
     background-image: url("./src/main-bg.jpg");
     height: 100vh;

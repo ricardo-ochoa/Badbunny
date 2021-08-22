@@ -2,7 +2,12 @@ import "./components/modal-tracks.js";
 import "./components/component-track.js";
 import "./components/component-artist.js";
 import "./components/component-media.js";
+import "./components/component-modal.js";
+import "./components/component-info-artist.js";
 import "./components/component-merch.js";
+import "./components/component-info-tour.js";
+
+
 
 const url = "https://badbunny-ep-default-rtdb.firebaseio.com/.json?callback=gotData";
 
@@ -55,7 +60,7 @@ const allItems = [];
 
 // ---Artistas--- //
 
-function selectArtists(){
+export function selectArtists(){
     firebase.database().ref('artists').once('value',
     function(AllArtists){
         AllArtists.forEach(
@@ -65,18 +70,23 @@ function selectArtists(){
                 var tracks = Artists.val().tracks;
                 var nickname = Artists.val().nickname;
                 var ide = Artists.val().id;
-                
-                addArtists(name,instagram,nickname,tracks,ide);
 
+                var instagram_link = Artists.val().instagram_link;
+                var spotify_link = Artists.val().spotify_link;
+                var youtube_link = Artists.val().youtube_link;
+                var apple_link = Artists.val().apple_link;
+                
+                addArtists(name,instagram,nickname,tracks,ide,instagram_link,apple_link,youtube_link,spotify_link);
+            
+                
             }
         )
-        allArtists.push(addArtists);
-        
+        allArtists.push(addArtists); 
     });
     
 }
 
-function addArtists(name,instagram,nickname,tracks,ide){
+ function addArtists(name,instagram,nickname,tracks,ide,instagram_link,apple_link,youtube_link,spotify_link){
     let artistContainer = document.querySelector(".artists");
     const componentArtist = document.createElement("component-artist");
 
@@ -85,9 +95,22 @@ function addArtists(name,instagram,nickname,tracks,ide){
     componentArtist.tracksfeaturings = tracks;
     componentArtist.ide = ide;
 
-
     artistContainer.appendChild(componentArtist);
 
+
+    // ---> Modal Artist info <--- //
+    componentArtist.addEventListener('click', (e) => {
+
+        const modalArtist = document.createElement("component-infoartist");
+        modalArtist.nickname = nickname;
+        modalArtist.instagram = instagram;
+        modalArtist.instagram_link = instagram_link;
+        modalArtist.apple_link = apple_link;
+        modalArtist.youtube_link = youtube_link;
+        modalArtist.spotify_link = spotify_link;
+
+        document.body.appendChild(modalArtist);
+    });
 }
 
 const allArtists = [];
@@ -104,8 +127,11 @@ function selectTours(){
                 var date = Tours.val().date;
                 var year = Tours.val().year;
                 var nickname = Tours.val().nickname;
+                var city = Tours.val().city;
+                var place = Tours.val().place;
+                var hour = Tours.val().hour;
                 
-                addTours(name,date,year,nickname);
+                addTours(name,date,year,nickname,city,place,hour);
                 
             }
         )
@@ -115,7 +141,7 @@ function selectTours(){
     
 }
 
-function addTours(name,date,year,nickname){
+function addTours(name,date,year,nickname,city,place,hour){
     let tourContainer = document.querySelector(".tours");
     const componentArtist = document.createElement("component-artist");
 
@@ -124,8 +150,21 @@ function addTours(name,date,year,nickname){
     componentArtist.tracksfeaturings = year;
     componentArtist.ide = date;
 
-
     tourContainer.appendChild(componentArtist);
+
+    // ---> Modal Tour info <--- //
+    componentArtist.addEventListener('click', (e) => {
+
+        const modalTour = document.createElement("component-infotour");
+        modalTour.nickname = nickname;
+        modalTour.date = date;
+        modalTour.year = year;
+        modalTour.city = name;
+        modalTour.place = place;
+        modalTour.hour = hour;
+
+        document.body.appendChild(modalTour);
+    });
 
 }
 
@@ -142,22 +181,23 @@ function selectMedia(){
             function(Media){ 
                 var name = Media.val().name;
                 var nickname = Media.val().nickname;
-                addMedia(name,nickname);
+                var link = Media.val().link;
+                addMedia(name,nickname,link);
                 
             }
         )
         allMedia.push(addMedia);
         
-    });
-    
+    });   
 }
 
-function addMedia(name,nickname){
+function addMedia(name,nickname,link){
     let mediaContainer = document.querySelector(".main-soicalmedia");
     const componentMedia = document.createElement("component-media");
 
     componentMedia.name = name;
     componentMedia.nickname = nickname;
+    componentMedia.link = link;
 
     mediaContainer.appendChild(componentMedia);
 }
@@ -173,8 +213,7 @@ function selectMerch(){
             function(Media){ 
                 var name = Media.val().name;
                 var price = Media.val().price;
-                addMerch(name,price);
-                console.log(name);
+                addMerch(name,price); 
             }
         )
         allMerch.push(addMerch);
@@ -197,6 +236,9 @@ function addMerch(name,price){
 }
 
 const allMerch = [];
+
+// ---Modals Artists--- //
+
 
 
 // ---Load--- //

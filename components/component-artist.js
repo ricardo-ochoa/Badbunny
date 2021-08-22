@@ -27,7 +27,7 @@ class componentArtist extends HTMLElement {
     getTemplate() {
       const template = document.createElement("template");
       template.innerHTML = `
-        <div class="${this.nickname} artist " id="artist">
+        <div class="${this.nickname} artist ">
 
           <div class="number-tracks">
           <p>${this.ide}</p> <p>${this.tracksfeaturings}</p>
@@ -210,7 +210,7 @@ class componentArtist extends HTMLElement {
         }
 
         .artistselected {
-          background: rgba(0, 0, 0, 0.8);
+          background: rgba(0, 0, 0, 0.6);
           
           background-size: 100%;
           color: coral;
@@ -289,10 +289,20 @@ class componentArtist extends HTMLElement {
       this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true));
     }
 
+    modal(expandState){
+      
+    }
+
 
     connectedCallback() {
       this.render();
-      
+
+      this.shadowRoot.querySelector('.artist').addEventListener('click', (e) => {
+      this.modal(true)
+    });
+
+
+
     }
   }
   customElements.define("component-artist", componentArtist);

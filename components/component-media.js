@@ -4,7 +4,7 @@ class componentMedia extends HTMLElement {
       this.attachShadow({ mode: "open" });
     }
     static get observedAttributes() {
-      return ["nickname", "name"];
+      return ["nickname", "name", "link"];
     }
     attributeChangedCallback(attr, oldVal, newVal) {
       if (attr === "nickname") {
@@ -13,25 +13,30 @@ class componentMedia extends HTMLElement {
       if (attr === "name") {
         this.name = newVal;
       }
+      if (attr === "link") {
+        this.link = newVal;
+      }
     }
     getTemplate() {
       const template = document.createElement("template");
       template.innerHTML = `
-        <div class="${this.nickname} artist ">
+        <a href="${this.link}" target="_blank">
+          <div class="${this.nickname} artist">
 
-          <div class="number-tracks">
-          <p></p> <p></p>
+            <div class="number-tracks">
+            <p></p> <p></p>
+            </div>
+
+            <div class="artists-nickname">
+                <p class='nickname'>${this.nickname}</p>
+                </div>
+
+            <div class="artist-name">
+                <p>${this.name}</p>
+            </div>
+
           </div>
-
-          <div class="artists-nickname">
-              <p class='nickname'>${this.nickname}</p>
-              </div>
-
-          <div class="artist-name">
-              <p>${this.name}</p>
-          </div>
-
-        </div>
+        </a>
         ${this.getStyles()}
       `;
       return template;
@@ -44,8 +49,11 @@ class componentMedia extends HTMLElement {
           margin: 0;
         }
 
+        a{
+          text-decoration: none;
+        }
 
-        .Ig:hover{
+      .Ig:hover{
           background: rgb(252,176,69);
           background: linear-gradient(20deg, rgba(252,176,69,1) 9%, rgba(253,29,29,1) 44%, rgba(131,58,180,1) 80%);
           background-size: 100%;
@@ -126,6 +134,11 @@ class componentMedia extends HTMLElement {
     connectedCallback() {
       this.render();
       
+
+      function instagramPage() {
+        console.log("instagram");
+      }
+
     }
   }
   customElements.define("component-media", componentMedia);
