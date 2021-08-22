@@ -45,6 +45,8 @@ class componentMedia extends HTMLElement {
       return `
         <style>
 
+        
+
         p{
           margin: 0;
         }
@@ -120,6 +122,16 @@ class componentMedia extends HTMLElement {
           justify-content: center;
           margin-bottom: .3rem;
           font-weight: 300;
+        }
+
+        @media (max-width: 320px) {
+
+          .artist {
+            width: 70px;
+            height: 70px;
+            align-content: center;
+          }
+
         }
 
 

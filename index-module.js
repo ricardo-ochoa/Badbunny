@@ -171,7 +171,6 @@ function addTours(name,date,year,nickname,city,place,hour){
 const allTours = [];
 
 
-
 // ---Social media--- //
 
 function selectMedia(){

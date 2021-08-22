@@ -30,7 +30,17 @@ class componentInfoArtists extends HTMLElement {
     getTemplate() {
       const template = document.createElement("template");
       template.innerHTML = `
+
+
+
       <div class="modal background">
+
+      <div class="close">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <path d="M4.51855 25.4463H21.4668C24.0596 25.4463 25.3926 24.0986 25.3926 21.5352V4.55762C25.3926 2.00879 24.0596 0.661133 21.4668 0.661133H4.51855C1.94043 0.661133 0.607422 1.97949 0.607422 4.55762V21.5352C0.607422 24.1133 1.94043 25.4463 4.51855 25.4463ZM4.5625 24.0254C2.90723 24.0254 2.01367 23.1611 2.01367 21.4619V4.63086C2.01367 2.94629 2.90723 2.06738 4.5625 2.06738H21.4229C23.0488 2.06738 23.9717 2.94629 23.9717 4.63086V21.4619C23.9717 23.1611 23.0488 24.0254 21.4229 24.0254H4.5625ZM8.12207 18.6494C8.3418 18.6494 8.50293 18.5762 8.66406 18.4004L13 14.0645L17.3359 18.4004C17.4971 18.5615 17.6729 18.6494 17.8926 18.6494C18.3027 18.6494 18.625 18.3271 18.625 17.9316C18.625 17.7119 18.5518 17.5508 18.3906 17.3896L14.04 13.0391L18.4053 8.67383C18.5664 8.49805 18.625 8.35156 18.625 8.13184C18.625 7.73633 18.3027 7.42871 17.8926 7.42871C17.7021 7.42871 17.541 7.4873 17.3652 7.66309L13 12.0137L8.66406 7.67773C8.48828 7.50195 8.3418 7.44336 8.12207 7.44336C7.71191 7.44336 7.38965 7.75098 7.38965 8.14648C7.38965 8.35156 7.46289 8.52734 7.62402 8.67383L11.9746 13.0391L7.62402 17.4043C7.46289 17.5508 7.38965 17.7266 7.38965 17.9316C7.38965 18.3271 7.71191 18.6494 8.12207 18.6494Z" fill="white"/>
+        </svg>
+      </div>
+
         <div class="frame" id="artist">
           <div class="merch-item">
             <div class="artists-pic ">
@@ -70,10 +80,19 @@ class componentInfoArtists extends HTMLElement {
       return `
         <style>
 
+        .close {
+          z-index: 3;
+          margin-top: 3rem;
+          margin-bottom: 7rem;
+          margin-right: 3rem;
+          align-self: flex-end;
+        }
+
         .modal{
           display: flex;
-          justify-content: center;
-          align-items: center;
+          // justify-content: center;
+          // align-items: center;
+          flex-direction: column;
           
           position: fixed;
           height: 100vh;
@@ -183,6 +202,8 @@ class componentInfoArtists extends HTMLElement {
           margin: 1rem;
           justify-items: center;
         }
+                
+        }
 
         .merch-title-item {
           display: flex;
@@ -242,15 +263,30 @@ class componentInfoArtists extends HTMLElement {
           font-weight: 300;
         }
 
-        @media (max-width: 768px) {
-
-          .frame {
-            width: 280px;
+        @media (max-width: 425px) {
+          .close {
+            margin-top: 1rem;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
           }
-
+  
           .artist-img{
-            width: 200px;
+            width: 240px;
+            height: 240px;
           }
+        }
+
+        @media (max-width: 320px) {
+  
+          .artist-img{
+            width: 240px;
+            height: 240px;
+          }
+
+        .frame {
+          width: 270px;
+        }
+
         }
 
         </style>
@@ -270,6 +306,9 @@ class componentInfoArtists extends HTMLElement {
 
       this.shadowRoot.querySelector('.modal').addEventListener('click', (e) => {
         if (e.target.classList[0] === "modal"){
+          this.close(true)
+        }
+        if (e.target.nodeName === "svg"){
           this.close(true)
         }
       });
