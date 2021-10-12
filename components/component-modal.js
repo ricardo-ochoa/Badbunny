@@ -60,6 +60,7 @@ class componentModal extends HTMLElement {
     connectedCallback() {
 
       this.render();
+      
 
     }
   }

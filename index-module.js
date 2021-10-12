@@ -7,7 +7,9 @@ import "./components/component-info-artist.js";
 import "./components/component-merch.js";
 import "./components/component-info-tour.js";
 import "./components/component-info-track.js";
-
+import "./components/component-artist-song.js";
+import "./components/audio-player.js";
+import "./check.js";
 
 
 const url = "https://badbunny-ep-default-rtdb.firebaseio.com/.json?callback=gotData";
@@ -20,7 +22,7 @@ var firebaseConfig = {
     storageBucket: 'gs://badbunny-ep.appspot.com'
   };
 
-  firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
 // ---Tracks--- //
 
@@ -33,8 +35,9 @@ function SelectAllTracks(){
                 var number = Tracks.val().number;
                 var producer = Tracks.val().producer;
                 var nickname = Tracks.val().nickname;
+                var artists = Tracks.val().artists;
 
-                addItems(trackname,number,producer,nickname);
+                addItems(trackname,number,producer,nickname,artists); 
                 
             }
         )
@@ -55,19 +58,36 @@ function addItems(trackname,number,producer,nickname){
 
     tracksContainer.appendChild(componentTrack);
 
-    // ---> Modal Tour info <--- //
+    // ---> Modal Track info <--- //
+
     componentTrack.addEventListener('click', (e) => {
+        const modalTracks = document.createElement("component-infotrack");
+        modalTracks.setAttribute("id","modaltrack");
 
-        const modalTrack = document.createElement("component-infotrack");
-        modalTrack .nickname = nickname;
-
-        document.body.appendChild(modalTrack );
+        document.body.appendChild(modalTracks);     
+        
     });
 
 }
 
-const allItems = [];
+    document.addEventListener('keyup', function(event){
+        let modalTracks = document.querySelector("component-infotrack");
+        if(event.key === "Escape"){
+            document.body.removeChild(modalTracks);
+        }
+    });
 
+    function addArtistsItems(nickname,name,ide,tracks){
+        modalTracks.nickname = nickname;
+        modalTracks.artistname = name;
+        modalTracks.ide = ide;
+        modalTracks.tracks = tracks;
+    }
+
+
+const allBarrioArtists = [];
+
+const allItems = [];
 
 // ---Artistas--- //
 
@@ -92,7 +112,7 @@ export function selectArtists(){
                 
             }
         )
-        allArtists.push(addArtists); 
+        allArtists.push(addArtists);
     });
     
 }
@@ -125,7 +145,6 @@ export function selectArtists(){
 }
 
 const allArtists = [];
-
 
 // ---Tours--- //
 

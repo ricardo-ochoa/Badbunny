@@ -312,6 +312,7 @@ class componentInfoArtists extends HTMLElement {
           this.close(true)
         }
       });
+
       
     }
   }

@@ -1,98 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./index2.css">
+ 
+    <title>Prueba</title>
+</head>
+<body>
+    <!-- <div class="select">
+        <div class="select__item">Mike Towers</div>
+        <div class="select__item">J Balvin</div>
+        <div class="select__item">Wisin</div>
+        <div class="select__item">Yandel</div>
+        <div class="select__item">Daddy Yankee</div>
+        <div class="select__item">Lunay</div>
+    </div> -->
+
+    <form action="">
+        <select name="language" class="custom-select" multiple>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="javascript">JavaScript</option>
+            <option value="python">Python</option>
+            <option value="sql">SQL</option>
+            <option value="kotlin">Kotlin</option>
+          </select>
+    </form>
 
 
-        <!-- <svg class="icon-close" id="cerrar" onclick="removeDialog();">
-            <path d="M4.51855 25.4463H21.4668C24.0596 25.4463 25.3926 24.0986 25.3926 21.5352V4.55762C25.3926 2.00879 24.0596 0.661133 21.4668 0.661133H4.51855C1.94043 0.661133 0.607422 1.97949 0.607422 4.55762V21.5352C0.607422 24.1133 1.94043 25.4463 4.51855 25.4463ZM4.5625 24.0254C2.90723 24.0254 2.01367 23.1611 2.01367 21.4619V4.63086C2.01367 2.94629 2.90723 2.06738 4.5625 2.06738H21.4229C23.0488 2.06738 23.9717 2.94629 23.9717 4.63086V21.4619C23.9717 23.1611 23.0488 24.0254 21.4229 24.0254H4.5625ZM8.12207 18.6494C8.3418 18.6494 8.50293 18.5762 8.66406 18.4004L13 14.0645L17.3359 18.4004C17.4971 18.5615 17.6729 18.6494 17.8926 18.6494C18.3027 18.6494 18.625 18.3271 18.625 17.9316C18.625 17.7119 18.5518 17.5508 18.3906 17.3896L14.04 13.0391L18.4053 8.67383C18.5664 8.49805 18.625 8.35156 18.625 8.13184C18.625 7.73633 18.3027 7.42871 17.8926 7.42871C17.7021 7.42871 17.541 7.4873 17.3652 7.66309L13 12.0137L8.66406 7.67773C8.48828 7.50195 8.3418 7.44336 8.12207 7.44336C7.71191 7.44336 7.38965 7.75098 7.38965 8.14648C7.38965 8.35156 7.46289 8.52734 7.62402 8.67383L11.9746 13.0391L7.62402 17.4043C7.46289 17.5508 7.38965 17.7266 7.38965 17.9316C7.38965 18.3271 7.71191 18.6494 8.12207 18.6494Z"/>
-        </svg> -->
-        
-        <img class="icon-close" src="/src/close.svg" alt="" onclick="removeDialog();">
-    <div class="indication">
-        <p>Selecciona máximo 2 artistas para el featuring</p>
-    </div>
-
-    <div class="artists-track">
-        <div class="artist-1 artist" id="mikebarrio">
-                <div class="number-tracks">
-                <p>01</p> <p>1·3·5</p>
-                </div>
-                <div class="artists-nickname ">
-                    <P>Mt</P>
-                <div class="artist-name">
-                    <p>Myke Towers</p>
-                </div>
-        </div>
-
-        
-        <div class="artist-2 artist" >
-            <div class="number-tracks">
-            <p>02</p> <p>1·3·5</p>
-            </div>
-            <div class="artists-nickname">
-                <P>Jb</P>
-            </div>
-            <div class="artist-name">
-                <p>J Balvin</p>
-            </div>
-        </div>
-        <div class="artist-3 artist">
-            <div class="number-tracks">
-            <p>03</p> <p>1·3·5</p>
-            </div>
-            <div class="artists-nickname">
-                <P>W</P>
-            </div>
-            <div class="artist-name">
-                <p>Wisin</p>
-            </div>
-        </div>
-        <div class="artist-4 artist">
-            <div class="number-tracks">
-            <p>04</p> <p>1·3·5</p>
-            </div>
-            <div class="artists-nickname">
-                <P>Y</P>
-            </div>
-            <div class="artist-name">
-                <p>Yandel</p>
-            </div>
-        </div>
-        <div class="artist-5 artist">
-            <div class="number-tracks">
-            <p>05</p> <p>1·3·5</p>
-            </div>
-            <div class="artists-nickname">
-                <P>Dy</P>
-            </div>
-            <div class="artist-name">
-                <p>Daddy Yankee</p>
-            </div>
-        </div>
-        <div class="artist-6 artist">
-            <div class="number-tracks">
-            <p>06</p> <p>1·3·5</p>
-            </div>
-            <div class="artists-nickname">
-                <P>Lu</P>
-            </div>
-            <div class="artist-name">
-                <p>Lunay</p>
-            </div>
-        </div>
-
-    </div>
-   
-    <div class="play-zone">
-        <p class="song-title">01-Barrio</p>
-        <p class="song-artists" id="artistsNames">Bad Bunny  <span> x </span>  Tainy </p>
-        <div class="btn-play">
-            <svg class="icon-play" viewBox="0 0 21 21"  xmlns="http://www.w3.org/2000/svg">
-                <path d="M10.3867 20.0664C15.7285 20.0664 20.123 15.6719 20.123 10.3301C20.123 4.98828 15.7285 0.603516 10.3867 0.603516C5.04492 0.603516 0.650391 4.98828 0.650391 10.3301C0.650391 15.6719 5.04492 20.0664 10.3867 20.0664ZM14.2148 10.8965L8.52148 14.207C8.0625 14.4805 7.51562 14.2363 7.51562 13.748V6.93164C7.51562 6.44336 8.08203 6.19922 8.52148 6.45312L14.2148 9.79297C14.625 10.0371 14.6348 10.6523 14.2148 10.8965Z"/>
-                
-                    <p class="escuchar">Escuchar</p>
-                
-            </svg>
-            <p class="escuchar">Escuchar</p>
-        </div>
-    </div>
-
+    <script src="./check.js"></script>
+</body>
+</html>
 
 

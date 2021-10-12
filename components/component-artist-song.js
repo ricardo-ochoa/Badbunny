@@ -1,4 +1,4 @@
-class componentArtist extends HTMLElement {
+class componentArtistTrack extends HTMLElement {
     constructor() {
       super();
       this.attachShadow({ mode: "open" });
@@ -27,7 +27,7 @@ class componentArtist extends HTMLElement {
     getTemplate() {
       const template = document.createElement("template");
       template.innerHTML = `
-        <div class="${this.nickname} artist " id="artist">
+        <div class="${this.nickname} artist">
 
           <div class="number-tracks">
           <p>${this.ide}</p> <p>${this.tracksfeaturings}</p>
@@ -41,6 +41,7 @@ class componentArtist extends HTMLElement {
           <div class="artist-name">
               <p>${this.artistname}</p>
           </div>
+
 
         </div>
         ${this.getStyles()}
@@ -200,11 +201,7 @@ class componentArtist extends HTMLElement {
               align-content: center;
               align-items: center;
           }
-          .artist {
-              width: 115px;
-              height: 115px;
-              display: grid;
-          }
+
       
           .artists-track {
               grid-column: 1 / 2;
@@ -231,7 +228,7 @@ class componentArtist extends HTMLElement {
     connectedCallback() {
       this.render();
 
-      const artist = this.shadowRoot.getElementById('artist'); 
+      const artist = this.shadowRoot.querySelector('.artist'); 
       const check = this.shadowRoot.querySelector('.check-icon');
       const nickname = this.shadowRoot.querySelector('.nickname');
 
@@ -248,8 +245,9 @@ class componentArtist extends HTMLElement {
           check.style.display = 'none';
         }
       });
+
       
     }
   }
-  customElements.define("component-artist", componentArtist);
+  customElements.define("component-artisttrack", componentArtistTrack);
 

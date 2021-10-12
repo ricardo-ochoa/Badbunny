@@ -4,35 +4,22 @@ class componentInfoTrack extends HTMLElement {
       this.attachShadow({ mode: "open" });
     }
     static get observedAttributes() {
-      return ["instagram", "nickname", "instagram_link", "apple_link", "spotify_link", "youtube_link"];
+      return ["nickname", "artistname"];
     }
     attributeChangedCallback(attr, oldVal, newVal) {
-      if (attr === "instagram") {
-        this.instagram = newVal;
-      }
+
       if (attr === "nickname") {
         this.nickname = newVal;
       }
-      if (attr === "instagram_link") {
-        this.instagram_link = newVal;
-      }
-      if (attr === "apple_link") {
-        this.apple_link = newVal;
-      }
-      if (attr === "spotify_link") {
-        this.spotify_link = newVal;
-      }
-      if (attr === "youtube_link") {
-        this.youtube_link = newVal;
+      if (attr === "artistname") {
+        this.artistname = newVal;
       }
       
     }
     getTemplate() {
       const template = document.createElement("template");
       template.innerHTML = `
-
-
-
+      
       <div class="modal background">
 
       <div class="close">
@@ -48,61 +35,131 @@ class componentInfoTrack extends HTMLElement {
             </div>
 
             <div class="medias">
-              <component-artist
-                nickname="Wi"
-                ide="01"
-                tracksfeaturings="02,08"
-                artistname="Daddy Yankee"
-              ></component-artist>
-              <component-artist
-                nickname="Wi"
-                ide="01"
-                tracksfeaturings="02,08"
-                artistname="Daddy Yankee"
-              ></component-artist>
-              <component-artist
-                nickname="Wi"
-                ide="01"
-                tracksfeaturings="02,08"
-                artistname="Daddy Yankee"
-              ></component-artist>
-              <component-artist
-                nickname="Wi"
-                ide="01"
-                tracksfeaturings="02,08"
-                artistname="Daddy Yankee"
-              ></component-artist>
-              <component-artist
-                nickname="Wi"
-                ide="01"
-                tracksfeaturings="02,08"
-                artistname="Daddy Yankee"
-              ></component-artist>
-              <component-artist
-                nickname="Wi"
-                ide="01"
-                tracksfeaturings="02,08"
-                artistname="Daddy Yankee"
-              ></component-artist>
+                
+                <component-artisttrack
+                  nickname="Mt"
+                  artistname="Myke Towers"
+                  ide="01"
+                  tracksfeaturings="01,05"
+                  class="Mt artist"
+                  value="Myke Towers"
+                ></component-artisttrack>
+
+                <component-artisttrack
+                  nickname="Jb"
+                  artistname="J Balvin"
+                  ide="02"
+                  tracksfeaturings="01,05"
+                  class="Jb"
+                  value="J Balvin"
+                ></component-artisttrack>
+
+                <component-artisttrack
+                  nickname="W"
+                  artistname="Wisin"
+                  ide="03"
+                  tracksfeaturings="01,03"
+                  class="W artist"
+                ></component-artisttrack>
+
+                <component-artisttrack
+                  nickname="Y"
+                  artistname="Yandel"
+                  ide="04"
+                  tracksfeaturings="01,03"
+                  class="Y artist"
+                ></component-artisttrack>
+
+                <component-artisttrack
+                  nickname="Dy"
+                  artistname="Daddy Yankee"
+                  ide="05"
+                  tracksfeaturings="01,03"
+                  class="Dy artist"
+                ></component-artisttrack>
+
+                <component-artisttrack
+                  nickname="Lu"
+                  artistname="Lunay"
+                  ide="06"
+                  tracksfeaturings="01"
+                  class="Lu artist"
+                ></component-artisttrack>
+
             </div>
 
-            <div class="instagram-name">
-                <a href="${this.instagram_link}" target="_blank" >
-                  <h3>${this.instagram}</h3>
-                </a>
+            <div class="play-zone">
+
+                <p class="song-title">01-Barrio</p>
+
+               <span class="song-artists" id="artistsNames"></span>
+              
+              <span id="trackBarrio" style="margin-top: 1rem;"> 
+                <audio-player title=""
+                  src="../src/Secret Job - Godmode.mp3"
+                  bar-width="10"
+                  bar-gap="5"
+                  preload 
+                ></audio-player>
+              </span>
+
             </div>
-            
+
+            </div>
+
           </div>
         </div>
       </div>  
         ${this.getStyles()}
       `;
       return template;
+      
     }
     getStyles() {
       return `
         <style>
 
+        .song-title{
+          margin: 1rem;
+        }
+
+        .frame {
+          background-color: rgba(0, 0, 0,.5);
+        }
+        .play-zone {
+          display: flex;
+          grid-column: 1/2;
+          grid-row: 4 / 4;
+          margin: 2rem 3rem 3rem 3rem;
+          color: #fff;
+          display: block;
+          text-align: center;
+        }
+
+        .btn-play {
+          border: 2px solid white ;
+          width: 150px;
+          height: 50px;
+          border-radius: 100px;
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          margin: 0 auto;
+          margin-top: 2rem;
+          fill: #fff;
+          color: #fff;
+          cursor: pointer;
+        }
+      
+        .btn-play:hover{
+            border: 2px solid  rgb(204, 99, 60) ;
+            background-color: coral;
+            fill: #000!important;
+        }
+
+        #trackBarrio {
+          margin-top: 1rem;
+        }
         .close {
           z-index: 3;
           margin-top: 3rem;
@@ -136,27 +193,27 @@ class componentInfoTrack extends HTMLElement {
           margin-top: 2rem;
         }
 
-        .Mt{
+        .Mt:hover{
           background-image: url(https://firebasestorage.googleapis.com/v0/b/badbunny-ep.appspot.com/o/artists%2FMt.jpg?alt=media&token=805f9038-f63d-4745-ae9a-eb57bb96604c);
           background-size: 100%;
         }
-        .Jb{
+        .Jb:hover{
             background-image: url(https://firebasestorage.googleapis.com/v0/b/badbunny-ep.appspot.com/o/artists%2FJb.jpg?alt=media&token=bd22e39e-4b92-4051-a995-17a55c605b76);
             background-size: 100%;
         }
-        .W{
+        .W:hover{
             background-image: url(https://firebasestorage.googleapis.com/v0/b/badbunny-ep.appspot.com/o/artists%2FW.jpg?alt=media&token=6edd8494-bbed-480d-87e9-0e94497c16ea);
             background-size: 100%;
         }
-        .Y{
+        .Y:hover{
             background-image: url(https://firebasestorage.googleapis.com/v0/b/badbunny-ep.appspot.com/o/artists%2FY.jpg?alt=media&token=6e491704-7734-4ed0-9cee-489abb2101a0);
             background-size: 100%;
         }
-        .Dy{
+        .Dy:hover{
             background-image: url(https://firebasestorage.googleapis.com/v0/b/badbunny-ep.appspot.com/o/artists%2FDy.jpg?alt=media&token=9eb7d9c5-0544-4ba9-9227-752b39f3a21d);
             background-size: 100%;
         }
-        .Lu{
+        .Lu:hover{
             background-image: url(https://firebasestorage.googleapis.com/v0/b/badbunny-ep.appspot.com/o/artists%2FLu.jpg?alt=media&token=6fb29745-545a-4a34-a9af-e24b9bc934eb);
             background-size: 100%;
         }
@@ -303,24 +360,22 @@ class componentInfoTrack extends HTMLElement {
           .medias{
             display: grid;
             grid-template-columns: repeat(3,1fr);
-            margin: 1rem 5rem 1rem 5rem;
+            margin: 1rem 4rem 1rem 4rem;
             justify-items: center;
-            padding: 0rem 2rem 0rem 2rem;
-            gap: 3px;
+
+            gap: 11px;
           }
 
           .artist-img{
-            width: 240px;
-            height: 240px;
+            width: 200px;
+            height: 200px;
           }
 
           .frame {
             width: 500px;
           }
 
-          .indication {
-            font-size: 1.3rem;
-          }
+
         }
 
         @media (max-width: 600px) {
@@ -335,17 +390,20 @@ class componentInfoTrack extends HTMLElement {
           .medias{
             margin: 0rem;
             justify-items: center;
-            padding: 0rem 0rem 0rem 0rem;
+            
             gap: 4px;
-            margin: 1rem 1rem 1rem 1rem;
+            
           }
           .close {
             margin-top: 1rem;
             margin-bottom: 1rem;
             margin-right: 1rem;
           }
-          .indication {
-            font-size: 1.1rem;
+
+          .play-zone {
+
+            margin: 0 0rem 2rem 0rem;
+
           }
         }
 
@@ -360,6 +418,7 @@ class componentInfoTrack extends HTMLElement {
             width: 350px;
           }
 
+
           .medias{
             margin: 0rem;
             justify-items: center;
@@ -373,7 +432,7 @@ class componentInfoTrack extends HTMLElement {
             margin-right: 1rem;
           }
           .indication {
-            font-size: 1rem;
+            font-size: 1.5rem;
           }
         }
 
@@ -393,40 +452,118 @@ class componentInfoTrack extends HTMLElement {
             justify-items: center;
             padding: 0rem 0rem 0rem 0rem;
             gap: 4px;
-            margin: 1rem 3rem 1rem 3rem;
+            
           }
           .close {
             margin-top: 1rem;
             margin-bottom: 1rem;
             margin-right: 1rem;
           }
+
+          .play-zone {
+
+            margin: 0 0rem 1rem 0rem;
+
+        }
+
         }
 
         </style>
       `;
     }
+
     render() {
       this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true));
     }
 
+    
     close(){
       const modal = document.querySelector("component-infotrack");
       document.body.removeChild(modal);
     }
 
+    SongName(){
+      this.trackName = this.shadowRoot.getElementById('artistsNames');
+      this.trackName.value="Bad Bunny x Tainy";
+      this.shadowRoot.getElementById('artistsNames').innerHTML=this.trackName.value;
+    }
+
+    name(){
+      this.trackName = this.shadowRoot.getElementById('artistsNames');
+      this.artist = this.shadowRoot.querySelectorAll("component-artisttrack[class='artist']");
+      
+      this.artist.addEventListener('click', (e) => {
+        this.trackName.value += ' x ' + this.getAttribute("artistname", val);
+        this.shadowRoot.getElementById('artistsNames').innerHTML=this.trackName.value;
+      });
+    }
+
+
+    checked(){
+      const Myke = this.shadowRoot.querySelector(".Mt"); 
+      const Jb = this.shadowRoot.querySelector(".Jb"); 
+      const W = this.shadowRoot.querySelector(".W"); 
+      const Y = this.shadowRoot.querySelector(".Y"); 
+      const Dy = this.shadowRoot.querySelector(".Dy"); 
+      const Lu = this.shadowRoot.querySelector(".Lu"); 
+
+      Myke.addEventListener('click', () => {
+        Myke.classList.toggle('artistselected');
+      });
+      Jb.addEventListener('click', () => {
+        Jb.classList.toggle('artistselected');
+      });
+      W.addEventListener('click', () => {
+        W.classList.toggle('artistselected');
+      });
+      Y.addEventListener('click', () => {
+        Y.classList.toggle('artistselected')
+      });
+      Dy.addEventListener('click', () => {
+        Dy.classList.toggle('artistselected');
+      });
+      Lu.addEventListener('click', () => {
+        Lu.classList.toggle('artistselected');
+      });
+    }
+
+    prueba(){
+      const Astistas = this.shadowRoot.querySelectorAll('artist');
+      const container = this.shadowRoot.querySelector(".medias"); 
+  
+      Astistas.addEventListener('click', (e) => {
+          console.log("oli")
+      });
+    }
+
+
     connectedCallback() {
       this.render();
+      this.SongName();
+      this.checked();
+      // this.prueba();
+      // this.shadowRoot.querySelector('.Mt').addEventListener('click', (e) => {
+      //   this.trackName = this.shadowRoot.getElementById('artistsNames');
+      //     this.trackName.value="Bad Bunny x Tainy x MykeTowers";
+      //     this.shadowRoot.getElementById('artistsNames').innerHTML=this.trackName.value;
+      //   });
 
       this.shadowRoot.querySelector('.modal').addEventListener('click', (e) => {
         if (e.target.classList[0] === "modal"){
           this.close(true)
+      
         }
         if (e.target.nodeName === "svg"){
           this.close(true)
+
         }
       });
+
+    }
+
+    disconnectedCallback() {
       
     }
   }
-  customElements.define("component-infotrack", componentInfoTrack);
 
+customElements.define("component-infotrack", componentInfoTrack);

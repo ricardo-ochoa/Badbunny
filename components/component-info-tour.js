@@ -348,6 +348,7 @@ class componentInfoTour extends HTMLElement {
           this.close(true)
         }
       });
+
       
     }
   }
