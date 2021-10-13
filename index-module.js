@@ -6,7 +6,7 @@ import "./components/component-modal.js";
 import "./components/component-info-artist.js";
 import "./components/component-merch.js";
 import "./components/component-info-tour.js";
-import "./components/component-info-track.js";
+import "./components/component-info-track-Ba.js";
 import "./components/component-artist-song.js";
 import "./components/audio-player.js";
 import "./check.js";
@@ -61,17 +61,15 @@ function addItems(trackname,number,producer,nickname){
     // ---> Modal Track info <--- //
 
     componentTrack.addEventListener('click', (e) => {
-        const modalTracks = document.createElement("component-infotrack");
+        const modalTracks = document.createElement("component-infotrackBa");
         modalTracks.setAttribute("id","modaltrack");
-
         document.body.appendChild(modalTracks);     
-        
     });
 
 }
 
     document.addEventListener('keyup', function(event){
-        let modalTracks = document.querySelector("component-infotrack");
+        let modalTracks = document.querySelector("component-infotrackba");
         if(event.key === "Escape"){
             document.body.removeChild(modalTracks);
         }

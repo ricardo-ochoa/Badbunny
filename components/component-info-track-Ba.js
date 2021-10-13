@@ -1,4 +1,4 @@
-class componentInfoTrack extends HTMLElement {
+class componentInfoTrackBa extends HTMLElement {
     constructor() {
       super();
       this.attachShadow({ mode: "open" });
@@ -42,7 +42,6 @@ class componentInfoTrack extends HTMLElement {
                   ide="01"
                   tracksfeaturings="01,05"
                   class="Mt artist"
-                  value="Myke Towers"
                 ></component-artisttrack>
 
                 <component-artisttrack
@@ -90,8 +89,7 @@ class componentInfoTrack extends HTMLElement {
 
             <div class="play-zone">
 
-                <p class="song-title">01-Barrio</p>
-
+              <p class="song-title">01-Barrio</p>
                <span class="song-artists" id="artistsNames"></span>
               
               <span id="trackBarrio" style="margin-top: 1rem;"> 
@@ -478,7 +476,7 @@ class componentInfoTrack extends HTMLElement {
 
     
     close(){
-      const modal = document.querySelector("component-infotrack");
+      const modal = document.querySelector("component-infotrackba");
       document.body.removeChild(modal);
     }
 
@@ -488,17 +486,6 @@ class componentInfoTrack extends HTMLElement {
       this.shadowRoot.getElementById('artistsNames').innerHTML=this.trackName.value;
     }
 
-    name(){
-      this.trackName = this.shadowRoot.getElementById('artistsNames');
-      this.artist = this.shadowRoot.querySelectorAll("component-artisttrack[class='artist']");
-      
-      this.artist.addEventListener('click', (e) => {
-        this.trackName.value += ' x ' + this.getAttribute("artistname", val);
-        this.shadowRoot.getElementById('artistsNames').innerHTML=this.trackName.value;
-      });
-    }
-
-
     checked(){
       const Myke = this.shadowRoot.querySelector(".Mt"); 
       const Jb = this.shadowRoot.querySelector(".Jb"); 
@@ -507,23 +494,60 @@ class componentInfoTrack extends HTMLElement {
       const Dy = this.shadowRoot.querySelector(".Dy"); 
       const Lu = this.shadowRoot.querySelector(".Lu"); 
 
+      const name = this.shadowRoot.getElementById('artistsNames')
+
       Myke.addEventListener('click', () => {
-        Myke.classList.toggle('artistselected');
+        Myke.classList.toggle('artistselected'); 
+        
+        if (Myke.classList[2] === "artistselected") {
+          name.innerHTML += " x " + Myke.artistname;
+        } else {
+          name.innerHTML = name.value;
+        }
+
       });
+
       Jb.addEventListener('click', () => {
         Jb.classList.toggle('artistselected');
+
+        if (Jb.classList[1] === "artistselected") {
+          name.innerHTML += " x " + Jb.artistname;
+        } else {
+          name.innerHTML = name.value;
+        }
       });
+
       W.addEventListener('click', () => {
         W.classList.toggle('artistselected');
+        if (W.classList[2] === "artistselected") {
+          name.innerHTML += " x " + W.artistname;
+        } else {
+          name.innerHTML = name.value;
+        }
       });
       Y.addEventListener('click', () => {
         Y.classList.toggle('artistselected')
+        if (Y.classList[2] === "artistselected") {
+          name.innerHTML += " x " + Y.artistname;
+        } else {
+          name.innerHTML = name.value;
+        }
       });
       Dy.addEventListener('click', () => {
         Dy.classList.toggle('artistselected');
+        if (Dy.classList[2] === "artistselected") {
+          name.innerHTML += " x " + Dy.artistname;
+        } else {
+          name.innerHTML = name.value;
+        }
       });
       Lu.addEventListener('click', () => {
         Lu.classList.toggle('artistselected');
+        if (Lu.classList[2] === "artistselected") {
+          name.innerHTML += " x " + Lu.artistname;
+        } else {
+          name.innerHTML = name.value;
+        }
       });
     }
 
@@ -536,26 +560,27 @@ class componentInfoTrack extends HTMLElement {
       });
     }
 
+    deleteName(){
+      this.shadowRoot.getElementById('somediv').innerHTML= "";
+    }
+
+    ValueName(){
+      this.shadowRoot.querySelector(".Mt").value;
+    }
+    
+
 
     connectedCallback() {
       this.render();
       this.SongName();
       this.checked();
-      // this.prueba();
-      // this.shadowRoot.querySelector('.Mt').addEventListener('click', (e) => {
-      //   this.trackName = this.shadowRoot.getElementById('artistsNames');
-      //     this.trackName.value="Bad Bunny x Tainy x MykeTowers";
-      //     this.shadowRoot.getElementById('artistsNames').innerHTML=this.trackName.value;
-      //   });
 
       this.shadowRoot.querySelector('.modal').addEventListener('click', (e) => {
         if (e.target.classList[0] === "modal"){
           this.close(true)
-      
         }
         if (e.target.nodeName === "svg"){
           this.close(true)
-
         }
       });
 
@@ -566,4 +591,4 @@ class componentInfoTrack extends HTMLElement {
     }
   }
 
-customElements.define("component-infotrack", componentInfoTrack);
+customElements.define("component-infotrackba", componentInfoTrackBa);
